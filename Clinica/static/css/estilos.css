@@ -1,0 +1,42 @@
+#inicio {
+    margin-top: 4% !important;
+}
+
+.inner {
+    overflow: hidden;
+}
+
+.inner img {
+    transition: all 1.5s ease;
+}
+
+.inner:hover img {
+    transform: scale(1.5);
+    cursor: zoom-in;
+}
+
+.color:hover {
+    color: green;
+    font-size: 15px;
+    cursor: zoom-in;
+
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #c0dcf8;
+    height: 100vh;
+  }
+  #login .container #login-row #login-column #login-box {
+    margin-top: 120px;
+    max-width: 600px;
+    height: 320px;
+    border: 1px solid #9C9C9C;
+    background-color: #EAEAEA;
+  }
+  #login .container #login-row #login-column #login-box #login-form {
+    padding: 20px;
+  }
+  #login .container #login-row #login-column #login-box #login-form #register-link {
+    margin-top: -85px;
+  }

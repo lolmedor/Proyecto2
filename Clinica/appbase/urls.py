@@ -1,0 +1,32 @@
+from django.urls import path
+from .views import(PacienteView, CrearPacienteView, EditarPacienteView, EliminarPacienteView, 
+ListadoHorarioView, CrearHorarioView, EditarHorarioView, EliminarHorarioView, ListadoAgendaView,
+CrearAgendaView, EditarAgendaView, EliminarAgendaView, DoctorView, CrearDoctoresView, EditarDoctoresView,
+EliminarDoctoresView, SignoVitalView, CrearSignoVitalView, EditarSignoVitalView, EliminarSignoVitalView)
+app_name = 'base'
+urlpatterns = [
+    path('paciente/', PacienteView.as_view(), name='paciente'),
+    path('crear_paciente/', CrearPacienteView.as_view(), name='crear_paciente'),
+    path('editar_paciente/<int:pk>/',
+         EditarPacienteView.as_view(), name='editar_paciente'),
+    path('eliminar_paciente/<int:pk>/',
+         EliminarPacienteView.as_view(), name='eliminar_paciente'),
+    path('listar_horario/', ListadoHorarioView.as_view(), name='listar_horario'),
+    path('crear_horario/', CrearHorarioView.as_view(), name='crear_horario'),
+    path('editar_horario/<int:pk>/', EditarHorarioView.as_view(), name='editar_horario'),
+    path('eliminar_horario/<int:pk>/', EliminarHorarioView.as_view(), name='eliminar_horario'),
+    path('listar_agenda/', ListadoAgendaView.as_view(), name='listar_agenda'),
+    path('crear_agenda/', CrearAgendaView.as_view(), name='crear_agenda'),
+    path('editar_agenda/<int:pk>/', EditarAgendaView.as_view(), name='editar_agenda'),
+    path('eliminar_agenda/<int:pk>/', EliminarAgendaView.as_view(), name='eliminar_agenda'),
+    path('listar_doctores/', DoctorView.as_view(), name='listar_doctores'),
+    path('crear_doctores/', CrearDoctoresView.as_view(), name='crear_doctores'),
+    path('editar_doctores/<int:pk>/',
+         EditarDoctoresView.as_view(), name='editar_doctores'),
+    path('eliminar_doctores/<int:pk>/',
+         EliminarDoctoresView.as_view(), name='eliminar_doctores'),
+    path('listar_signovital/', SignoVitalView.as_view(), name='listar_signovital'),
+    path('crear_signovital/', CrearSignoVitalView.as_view(), name='crear_signovital'),
+    path('editar_signovital/<int:pk>/', EditarSignoVitalView.as_view(), name='editar_signovital'),
+    path('eliminar_signovital/<int:pk>/', EliminarSignoVitalView.as_view(), name='eliminar_signovital'),
+]

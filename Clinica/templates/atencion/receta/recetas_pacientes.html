@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block header %}
+{% include 'header.html' %}
+{% endblock %}
+{% block main %}
+{% load static %}
+<div class="container-fluid" style="margin-top: 3rem;">
+    <div class="card">
+        <div class="card-header bg-success text-light ">
+            <div class="row">
+                <div class="col-md-8">
+                </div>
+            </div>
+        </div>
+        <div class="card-body table-responsive">
+            <div class="row">
+                <div class="card-title col-md-8 mt-2">
+                    <h2 class="text-dark ml-2 font-italic">
+                        Consulta de Recetas del paciente. 
+                    </h2>
+                </div>
+                <div class="col-md-4">
+                    <div class="float-right m-3">
+                        <a class="btn btn-primary btn-sm"
+                        href="{% url 'atencion:nuevaReceta' %}?id_paciente={{recetas.paciente.id}}">Nueva Receta</a>
+                        <a class="btn btn-primary btn-sm" href="{% url 'atencion:detalle' %}?id_paciente={{recetas.paciente.id}}">Detalle de Receta</a>
+                        <a class="btn btn-primary btn-sm" href="{% url 'atencion:toma' %}">Toma de Signos</a>
+                        <a class="btn btn-primary btn-sm"
+                        href="{% url 'base:paciente' %}">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-2">
+                <div class="col">
+                    <table class="table table-striped table-hover table-sm  ">
+
+                        <thead>
+                            <tr>
+                                <th class="text-center">Paciente</th>
+                                <th class="text-center">Fecha</th>
+                                <th class="text-center">Hora</th>
+                                <th class="text-center">Motivo</th>
+                                <th class="text-center">Acciones</th>
+                            </tr>
+
+                        </thead>
+                        <tbody id="tabla">
+                            {% for rec in recetas%}
+                            <tr>
+                                <td class="text-center">{{ rec.paciente.nombre }}</td>
+                                <td class="text-center">{{ rec.fecha }}</td>
+                                <td class="text-center">{{ rec.hora }}</td>
+                                <td class="text-center">{{ rec.motivo }}</td>
+                                <td class="text-center"><a class="btn btn-primary btn-sm" href="{% url 'atencion:d' %}?id_rec={{rec.id}}">Detalle de esta Receta</a></td>
+                            </tr>
+                            {% empty %}
+                            <div class="alert alert-warning alert-dismissible fade show mt-2" role="alert">
+                                <strong>Mensaje del Sistema!</strong> No existen Recetas del paceinte registrados.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
